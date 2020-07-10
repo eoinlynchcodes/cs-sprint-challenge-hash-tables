@@ -2,15 +2,20 @@ def intersection(arrays):
     """
     YOUR CODE HERE
     """
-            
-   
 
+    cache = []
 
+    for array in arrays:
+        for value in array:
+            if value not in cache:
+                cache.append(value)
+            else:
+                return cache
 
-intersection([
-    [1,2,3],
-    [1,4,5],
-    [1,6,7]])
+print(intersection([
+        [1,2,4],
+        [1, 2, 4],
+        [1,6,7]]))
     
 
 

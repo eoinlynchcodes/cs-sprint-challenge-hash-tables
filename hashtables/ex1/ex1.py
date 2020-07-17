@@ -1,18 +1,20 @@
 def get_indices_of_item_weights(weights, length, limit):
-    """
-    YOUR CODE HERE
-    """
 
-    result = []
+    weight_dict = {}
 
-    for weight in weights:
-        for another in weights:
-            if weight + another == limit:
-                result.append(weight)
-                result.append(another)
-                result.sort(reverse=True)
-                return result
+    for index, weight in enumerate(weights):
+        complement = limit - weight
+        if complement in weight_dict:
+            return [index, weight_dict[complement]]
+        else: 
+            weight_dict[weight] = index
 
 
-print(get_indices_of_item_weights([1, 2], 4, 3))
+print(get_indices_of_item_weights([1,2,3], 3, 3))
 
+
+
+    # get the value in weights
+    # put it into the weight_dict
+    # check if the contents of weight_dict - weight = limit
+    # if it does, return weight_dict, weight
